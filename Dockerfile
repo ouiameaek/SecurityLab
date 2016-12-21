@@ -16,4 +16,3 @@ COPY rsaOLD /rsaOLD
 WORKDIR "/src"
 
 CMD [ "python", "./server.py" ]
-CMD [ "python", "./client.py" ]
