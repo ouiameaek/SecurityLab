@@ -6,7 +6,7 @@ Demonstrate python2.7's rsa signature forgery vulnerability
 `sudo docker build -t imagename PATH_TO_DOCKERFILE`
 
 ### Run the server in the container :
-`sudo docker run --name ="containername" imagename`
+`sudo docker run --name "containername" imagename`
 
 ### Connect to the container bash :
 `sudo docker exec -it containername bash`
