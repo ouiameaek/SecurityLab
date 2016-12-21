@@ -1,7 +1,7 @@
 import socket
 import json
 import rsa
-import rsa0LD
+import ../rsa0LD
 from ../rsa0LD import common
 from rsa import key as keyfile
 from ../rsa0LD import pkcs1 as old
