@@ -1,10 +1,10 @@
 import socket
 import json
 import rsa
-import ../rsaOLD
-from ../rsaOLD import common
+import rsaOLD
+from rsaOLD import common
 from rsa import key as keyfile
-from ../rsaOLD import pkcs1 as old
+from rsaOLD import pkcs1 as old
 from collections import namedtuple
 import time
 
