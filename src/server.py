@@ -38,9 +38,9 @@ while True:
 	signature = client.recv(2048)
 	response = old.verify(msg.encode('utf-8'), signature,pub_keys[int(client_id)])
 	if(response):
-		client.send("Connected".encode('ASCII'))
+		client.send("Authentication Accepted".encode('ASCII'))
 	else:
-		client.send("Not Connected".encode('ASCII'))
+		client.send("Sorry, Authentication Not Accepted".encode('ASCII'))
 	print("Signature received & answer is sent\n Connection closed with client ",client_id+1,"\n")
 	client.close()
 	
