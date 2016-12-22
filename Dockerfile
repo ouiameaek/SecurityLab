@@ -11,7 +11,6 @@ RUN pip3 install gmpy2 \
 		 rsa
 
 COPY src /src
-COPY rsaOLD /rsaOLD
 
 WORKDIR "/src"
 
