@@ -81,14 +81,14 @@ for i in range(3):
 	soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	soc.connect((hote, port))
 	msg_auth=generate_msg(i)
-	print("sending message to the server",i+1," msg\n")
+	print("Sending message to the server",i+1," msg\n")
 	soc.send(msg_auth)
-	print("msg was sent , waiting for server authentification !\n")
+	print("Message was sent, waiting for server authentification !\n")
 	response = soc.recv(2048)
 	print ("Server's response after sending the message is : ",response,"\n")
 	signature = rsa.sign("Go left at the blue tree".encode("ASCII"), priv_keys[i], 'SHA-1') 
 	soc.send(signature)
-	print("signature is sent !\n")
+	print("Signature is sent !\n")
 	time.sleep(1)
 	response = soc.recv(1024)
 	if(response.decode("utf-8")  == "Connected"):
@@ -99,29 +99,26 @@ for i in range(3):
 	soc.close()
 
 time.sleep(1)
-print("\n\n\n******  trying to forge a signature for client 3 with e = 3\n\n\n")
+print("\n\n\n******  Trying to forge a signature for client 3 with e = 3\n\n\n")
 time.sleep(5)
 soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 soc.connect((hote, port))
 infos={'client_id': 3, 'msg': "Ciao, mamma!!".encode("ASCII").decode("utf-8")}
 msg_auth=json.dumps(infos).encode('utf-8')
-print("sending message to the server",i+1," msg\n")
+print("Sending message to the server",i+1," msg\n")
 soc.send(msg_auth)
-print("msg was sent , waiting for server authentification !\n")
+print("Message was sent, waiting for server authentification !\n")
 response = soc.recv(2048)
 print ("Server's response after sending the message is : ",response,"\n")
 signature = generate_fake_signature()
 soc.send(signature)
-print("signature is sent !\n")
+print("Signature is sent !\n")
 time.sleep(2)
 time.sleep(1)
 response = soc.recv(1024)
 if(response.decode("utf-8")  == "Connected"):
 	print ("Server's response for fake account is : ",response.decode("utf-8"),"\n")
 else:
-	print("Sorry, Client ",i," is not connected\n")
+	print("Sorry: Client ",i," is not connected\n")
 print ("Close\n\n\n")
 soc.close()
-
-
-
