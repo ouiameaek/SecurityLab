@@ -33,7 +33,7 @@ while True:
 	msg = data['msg']
 	print("Client ",client_id+1," Message is : ",msg)
 	print("Asking client for signature !")
-	client.send("Sending signature".encode("ASCII"))
+	client.send("send signature".encode("ASCII"))
 	time.sleep(1)
 	signature = client.recv(2048)
 	response = old.verify(msg.encode('utf-8'), signature,pub_keys[int(client_id)])
