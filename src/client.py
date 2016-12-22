@@ -91,7 +91,7 @@ for i in range(3):
 	print("Signature is sent !\n")
 	time.sleep(1)
 	response = soc.recv(1024)
-	if(response.decode("utf-8")  == "Connected"):
+	if(response.decode("utf-8")  == "Authentication Accepted"):
 		print ("Server's response for client ",i+1," is : ",response.decode("utf-8"),"\n")
 	else:
 		print("Sorry, Client ",i+1," is not connected\n")
