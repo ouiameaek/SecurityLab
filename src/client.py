@@ -116,7 +116,7 @@ print("Signature is sent !\n")
 time.sleep(2)
 time.sleep(1)
 response = soc.recv(1024)
-if(response.decode("utf-8")  == "Connected"):
+if(response.decode("utf-8")  == "Authentication Accepted"):
 	print ("Server's response for fake account is : ",response.decode("utf-8"),"\n")
 else:
 	print("Sorry: Client ",i," is not connected\n")
