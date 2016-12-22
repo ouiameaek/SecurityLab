@@ -31,17 +31,17 @@ while True:
 	data=json.loads(client.recv(2048).decode('utf8'))
 	client_id = data['client_id']
 	msg = data['msg']
-	print("client ",client_id+1," message is : ",msg)
-	print("asking client for signature !")
-	client.send("send signature".encode("ASCII"))
+	print("Client ",client_id+1," Message is : ",msg)
+	print("Asking client for signature !")
+	client.send("Sending signature".encode("ASCII"))
 	time.sleep(1)
 	signature = client.recv(2048)
 	response = old.verify(msg.encode('utf-8'), signature,pub_keys[int(client_id)])
 	if(response):
 		client.send("Authentication Accepted".encode('ASCII'))
 	else:
-		client.send("Sorry, Authentication Not Accepted".encode('ASCII'))
-	print("Signature received & answer is sent\n Connection closed with client ",client_id+1,"\n")
+		client.send("Sorry: Authentication Not Accepted".encode('ASCII'))
+	print("Signature received & Answer is sent\n Connection closed with client ",client_id+1,"\n")
 	client.close()
 	
 			
